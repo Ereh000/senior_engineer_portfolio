@@ -1,5 +1,5 @@
-import { motion } from 'motion/react';
-import profile from '../assets/profile.jpeg';
+import { motion } from "motion/react";
+import profile from "../assets/profile.jpeg";
 
 export default function Hero() {
   const containerVariants = {
@@ -35,32 +35,53 @@ export default function Hero() {
             animate="visible"
             className="lg:col-span-7 max-w-3xl"
           >
-            <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm mb-6 md:mb-8">
+            <motion.div
+              variants={itemVariants}
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm mb-6 md:mb-8"
+            >
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-xs font-medium text-white/70 uppercase tracking-wider">Available for new projects</span>
+              <span className="text-xs font-medium text-white/70 uppercase tracking-wider">
+                Available for new projects
+              </span>
             </motion.div>
 
             <motion.h1
               variants={itemVariants}
               className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter text-balance leading-[1.1] mb-6"
             >
-              Architecting Scalable <span className="text-white/40">eCommerce Systems</span> & High-Performance Applications.
+              Architecting Scalable{" "}
+              <span className="text-white/40">eCommerce Systems</span> &
+              High-Performance Applications.
             </motion.h1>
 
             <motion.p
               variants={itemVariants}
               className="text-base md:text-lg text-white/50 max-w-xl leading-relaxed mb-8 md:mb-10"
             >
-              Senior Full Stack Engineer specializing in premium eCommerce architecture, modern full-stack systems, native mobile applications, and AI-powered integrations.
+              Senior Full Stack Engineer specializing in premium eCommerce
+              architecture, modern full-stack systems, native mobile
+              applications, and AI-powered integrations.
             </motion.p>
 
-            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center gap-4">
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-col sm:flex-row items-center gap-4"
+            >
               <a
                 href="#work"
                 className="w-full sm:w-auto px-6 py-3 md:px-8 md:py-4 bg-white text-black rounded-full font-medium hover:bg-white/90 transition-colors flex items-center justify-center gap-2"
               >
                 View Selected Work
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
                   <line x1="5" y1="12" x2="19" y2="12"></line>
                   <polyline points="12 5 19 12 12 19"></polyline>
                 </svg>
@@ -75,19 +96,21 @@ export default function Hero() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, filter: 'blur(10px)' }}
-            animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+            initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+            animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
             transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
             className="lg:col-span-5 flex justify-center lg:justify-end"
           >
             <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border border-white/10 bg-white/5 p-2">
               <div className="w-full h-full rounded-full overflow-hidden relative">
                 <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent z-10 mix-blend-overlay" />
-                <img 
-                  src={profile} 
-                  alt="Arif Khan" 
+                <img
+                  src={profile}
+                  alt="Arif Khan"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                  data-nosnippet
+                  loading="lazy"
                 />
               </div>
             </div>
