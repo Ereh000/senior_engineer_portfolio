@@ -25,9 +25,9 @@ export default function Process() {
   ];
 
   return (
-    <section id="process" className="py-32 bg-[#0B0B0F] border-t border-white/5 relative overflow-hidden">
+    <section id="process" className="py-20 md:py-32 bg-[#0B0B0F] border-t border-white/5 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        <div className="mb-24 text-center">
+        <div className="mb-10 md:mb-24 text-center">
           <h2 className="text-sm font-medium text-white/40 uppercase tracking-widest mb-4">Methodology</h2>
           <h3 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter text-balance leading-[1.1]">
             A systematic approach to <span className="text-white/40">complex engineering.</span>

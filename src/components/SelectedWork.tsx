@@ -7,9 +7,9 @@ export default function SelectedWork() {
   const featuredProjects = projectsData.filter((p) => p.featured).slice(0, 3);
 
   return (
-    <section id="work" className="py-32 bg-bg border-t border-white/5">
+    <section id="work" className="py-20 md:py-32 bg-bg border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="mb-24">
+        <div className="mb-10 md:mb-24">
           <h2 className="text-sm font-medium text-white/40 uppercase tracking-widest mb-4">
             Selected Work
           </h2>
@@ -19,7 +19,7 @@ export default function SelectedWork() {
           </h3>
         </div>
 
-        <div className="flex flex-col gap-32">
+        <div className="flex flex-col gap-12 md:gap-32">
           {featuredProjects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -115,7 +115,7 @@ export default function SelectedWork() {
           ))}
         </div>
 
-        <div className="mt-24 text-center">
+        <div className="mt-10 md:mt-24 text-center">
           <Link
             to="/projects"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-black font-semibold hover:bg-white/90 transition-colors group"

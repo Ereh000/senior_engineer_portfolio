@@ -45,9 +45,9 @@ export default function Experience() {
   ];
 
   return (
-    <section className="py-32 bg-bg border-t border-white/5">
+    <section className="py-20 md:py-32 bg-bg border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="mb-24">
+        <div className="mb-10 md:mb-24">
           <h2 className="text-sm font-medium text-white/40 uppercase tracking-widest mb-4">
             Experience
           </h2>
@@ -69,7 +69,7 @@ export default function Experience() {
                 delay: index * 0.1,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="mb-16 last:mb-0 pl-8 md:pl-12 relative"
+              className="mb-16 last:mb-0 pl-6 md:pl-12 relative"
             >
               <div className="absolute w-3 h-3 bg-white rounded-full -left-[6.5px] top-2 shadow-[0_0_10px_rgba(255,255,255,0.5)]" />
 

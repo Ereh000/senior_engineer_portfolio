@@ -23,12 +23,12 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-20 pb-12 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center pt-20 pb-24 md:pb-12 overflow-hidden">
       {/* Subtle background grid */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="flex flex-col-reverse md:grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -47,7 +47,7 @@ export default function Hero() {
 
             <motion.h1
               variants={itemVariants}
-              className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter text-balance leading-[1.1] mb-6"
+              className="text-4xl md:text-5xl lg:text-7xl font-semibold tracking-tighter text-balance leading-[1.1] mb-6"
             >
               Architecting Scalable{" "}
               <span className="text-white/40">eCommerce Systems</span> &
@@ -69,7 +69,7 @@ export default function Hero() {
             >
               <a
                 href="#work"
-                className="w-full sm:w-auto px-6 py-3 md:px-8 md:py-4 bg-white text-black rounded-full font-medium hover:bg-white/90 transition-colors flex items-center justify-center gap-2"
+                className="w-full sm:w-auto min-h-[44px] px-6 py-3 md:px-8 md:py-4 bg-white text-black rounded-full font-medium hover:bg-white/90 transition-colors flex items-center justify-center gap-2"
               >
                 View Selected Work
                 <svg

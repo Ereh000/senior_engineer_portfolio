@@ -18,7 +18,7 @@ export default function TechStack() {
   ];
 
   return (
-    <section className="py-32 bg-[#0B0B0F] border-t border-white/5">
+    <section className="py-20 md:py-32 bg-[#0B0B0F] border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
         <div className="mb-16">
           <h2 className="text-sm font-medium text-white/40 uppercase tracking-widest mb-4">Core Technologies</h2>

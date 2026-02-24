@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-bg text-white selection:bg-white/20 selection:text-white font-sans">
       <Navbar />
-      <main>
+      <main className="pb-24 md:pb-0">
         <Hero />
         <AuthorityStrip />
         <About />

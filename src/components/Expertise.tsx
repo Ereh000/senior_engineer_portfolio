@@ -46,10 +46,10 @@ export default function Expertise() {
   return (
     <section
       id="expertise"
-      className="py-32 bg-[#0B0B0F] border-t border-white/5"
+      className="py-20 md:py-32 bg-[#0B0B0F] border-t border-white/5"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="mb-16 md:mb-24">
+        <div className="mb-10 md:mb-24">
           <h2 className="text-sm font-medium text-white/40 uppercase tracking-widest mb-4">
             Core Competencies
           </h2>
