@@ -12,9 +12,9 @@ export default function Footer() {
         </div>
         
         <div className="flex items-center gap-6 text-sm font-medium text-white/50">
-          <a href="#" className="hover:text-white transition-colors">Twitter</a>
-          <a href="#" className="hover:text-white transition-colors">GitHub</a>
-          <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
+          {/* <a href="#" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Twitter</a> */}
+          <a href="https://github.com/Kirito8400" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub</a>
+          <a href="https://linkedin.com/in/arif-khan-01a711241" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
         </div>
       </div>
     </footer>

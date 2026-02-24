@@ -1,3 +1,8 @@
+import kryptek from '../assets/projects/kryptek.png';
+import thewavewalker from '../assets/projects/thewavewalker.png';
+import gideon from '../assets/projects/gideon-app.png';
+
+
 export interface Project {
   id: string;
   title: string;
@@ -15,6 +20,50 @@ export interface Project {
 
 export const projectsData: Project[] = [
   {
+    id: "kryptek",
+    title: "Kryptek UK",
+    subtitle: "Hunting Apperal E-commerce",
+    description:
+      "Tactical hunting camo gear, apparel, and accessories storefront tailored for the UK market.",
+    problem:
+      "Needed a robust localized storefront with complex product catalog and high traffic capability.",
+    architecture:
+      "Shopify Plus implementation with region-specific customizations.",
+    tech: ["Shopify Plus", "React", "GraphQL"],
+    results: "Seamless localization and high availability.",
+    impact: "Expanded reach in the UK market.",
+    image: kryptek,
+    link: "https://kryptek.com/",
+    featured: true,
+  },
+  {
+    id: "the-wavewalker",
+    title: "The Wavewalker",
+    subtitle: "Hybrid Footwear E-commerce",
+    description:
+      "Modern D2C brand storefront showcasing hybrid moccasins and formal shoes.",
+    tech: ["Shopify", "React", "Tailwind CSS"],
+    image: thewavewalker,
+    link: "https://www.thewavewalker.com/",
+    featured: true,
+  },
+  {
+    id: "gideon-ai-search",
+    title: "Gideon AI Search",
+    subtitle: "Public Shopify App",
+    description:
+      "An AI-driven visual search solution built to enhance product discoverability.",
+    problem:
+      "Users struggling to find specific products using traditional keyword search.",
+    architecture: "AI integration with image-based capabilities.",
+    tech: ["Python", "AI", "React", "Shopify API"],
+    results: "Smart search bar with predictive suggestions.",
+    impact: "Increases search-based conversions.",
+    image: gideon,
+    link: "https://apps.shopify.com/gideon-ai-search",
+    featured: true,
+  },
+  {
     id: "maven-optics",
     title: "Maven Optics",
     subtitle: "Custom E-commerce Storefront",
@@ -30,7 +79,7 @@ export const projectsData: Project[] = [
     image:
       "https://images.unsplash.com/photo-1582239462276-8025257cbcc3?q=80&w=1920&auto=format&fit=crop",
     link: "https://mavenoptics.com/",
-    featured: true,
+    // featured: true,
   },
   {
     id: "sog-knives",
@@ -48,25 +97,7 @@ export const projectsData: Project[] = [
     image:
       "https://images.unsplash.com/photo-1590435990264-b893a9386add?q=80&w=1920&auto=format&fit=crop",
     link: "https://www.sogknives.com/",
-    featured: true,
-  },
-  {
-    id: "kryptek",
-    title: "Kryptek UK",
-    subtitle: "Hunting Apperal E-commerce",
-    description:
-      "Tactical hunting camo gear, apparel, and accessories storefront tailored for the UK market.",
-    problem:
-      "Needed a robust localized storefront with complex product catalog and high traffic capability.",
-    architecture:
-      "Shopify Plus implementation with region-specific customizations.",
-    tech: ["Shopify Plus", "React", "GraphQL"],
-    results: "Seamless localization and high availability.",
-    impact: "Expanded reach in the UK market.",
-    image:
-      "https://images.unsplash.com/photo-1478135890009-1e35d259fb14?q=80&w=1920&auto=format&fit=crop",
-    link: "https://kryptek.com/",
-    featured: true,
+    // featured: true,
   },
   {
     id: "rovince-uk",
@@ -88,17 +119,6 @@ export const projectsData: Project[] = [
     image:
       "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=1920&auto=format&fit=crop",
     link: "https://bonezbullysticks.com/",
-  },
-  {
-    id: "the-wavewalker",
-    title: "The Wavewalker",
-    subtitle: "Hybrid Footwear E-commerce",
-    description:
-      "Modern D2C brand storefront showcasing hybrid moccasins and formal shoes.",
-    tech: ["Shopify", "React", "Tailwind CSS"],
-    image:
-      "https://images.unsplash.com/photo-1560343090-f0409e92791a?q=80&w=1920&auto=format&fit=crop",
-    link: "https://www.thewavewalker.com/",
   },
   {
     id: "dollar-woof-club",
@@ -128,22 +148,6 @@ export const projectsData: Project[] = [
     image:
       "https://images.unsplash.com/photo-1627398225058-f4e40e6ce60f?q=80&w=1920&auto=format&fit=crop",
     link: "https://apps.shopify.com/easy-variant-images-automator",
-    featured: true,
-  },
-  {
-    id: "gideon-ai-search",
-    title: "Gideon AI Search",
-    subtitle: "Public Shopify App",
-    description:
-      "An AI-driven visual search solution built to enhance product discoverability.",
-    problem:
-      "Users struggling to find specific products using traditional keyword search.",
-    architecture: "AI integration with image-based capabilities.",
-    tech: ["Python", "AI", "React", "Shopify API"],
-    results: "Smart search bar with predictive suggestions.",
-    impact: "Increases search-based conversions.",
-    image:
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1920&auto=format&fit=crop",
-    link: "https://apps.shopify.com/gideon-ai-search",
+    // featured: true,
   },
 ];

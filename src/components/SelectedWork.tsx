@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import { projectsData } from "../data/projects";
 
 export default function SelectedWork() {
@@ -38,7 +38,7 @@ export default function SelectedWork() {
                     src={project.image}
                     alt={project.title}
                     referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-full grayscale hover:grayscale-0 object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
               </div>
@@ -49,9 +49,22 @@ export default function SelectedWork() {
                 <span className="text-sm font-medium text-white/40 uppercase tracking-widest mb-4">
                   {project.subtitle}
                 </span>
-                <h4 className="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-8">
-                  {project.title}
-                </h4>
+                <div className="flex items-center justify-between mb-8">
+                  <h4 className="text-3xl md:text-4xl font-semibold tracking-tight text-white">
+                    {project.title}
+                  </h4>
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group-hover:border-white/20"
+                      aria-label={`View ${project.title}`}
+                    >
+                      <ExternalLink className="w-5 h-5 text-white/70 group-hover:text-white transition-colors" />
+                    </a>
+                  )}
+                </div>
 
                 <div className="space-y-6">
                   <div>

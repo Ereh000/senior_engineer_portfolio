@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import profile from '../assets/profile.jpeg';
 
 export default function Hero() {
   const containerVariants = {
@@ -83,7 +84,7 @@ export default function Hero() {
               <div className="w-full h-full rounded-full overflow-hidden relative">
                 <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent z-10 mix-blend-overlay" />
                 <img 
-                  src="https://picsum.photos/seed/arif/800/800" 
+                  src={profile} 
                   alt="Arif Khan" 
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"

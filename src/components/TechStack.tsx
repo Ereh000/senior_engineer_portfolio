@@ -5,13 +5,16 @@ export default function TechStack() {
     'Shopify',
     'Hydrogen',
     'React',
+    'React Native',
+    'Express.js',
     'Next.js',
-    'Remix',
+    'Remix.js',
     'Node.js',
     'PostgreSQL',
     'MongoDB',
     'Prisma',
-    'Tailwind CSS'
+    'Tailwind CSS',
+    'Git & GitHub'
   ];
 
   return (
@@ -24,7 +27,7 @@ export default function TechStack() {
           </h3>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-4 md:gap-6 max-w-4xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-4 md:gap-6">
           {technologies.map((tech, index) => (
             <motion.div
               key={index}
