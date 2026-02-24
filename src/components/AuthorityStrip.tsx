@@ -3,9 +3,9 @@ import { motion } from 'motion/react';
 export default function AuthorityStrip() {
   const stats = [
     { label: 'Years Experience', value: '4+' },
+    { label: 'Websites', value: '20+' },
     { label: 'Shopify Themes', value: '30+' },
     { label: 'Public Apps', value: '5+' },
-    { label: 'Hydrogen Stores', value: '10+' },
   ];
 
   return (

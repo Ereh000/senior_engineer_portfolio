@@ -50,7 +50,7 @@ export default function Hero() {
               variants={itemVariants}
               className="text-base md:text-lg text-white/50 max-w-xl leading-relaxed mb-8 md:mb-10"
             >
-              Senior Shopify & Full Stack Engineer specializing in premium eCommerce architecture, modern full-stack systems, and AI-powered integrations.
+              Senior Full Stack Engineer specializing in premium eCommerce architecture, modern full-stack systems, native mobile applications, and AI-powered integrations.
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center gap-4">
