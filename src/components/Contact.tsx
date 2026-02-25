@@ -1,8 +1,66 @@
 import { motion } from "motion/react";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
+
+// ─── EmailJS Config ────────────────────────────────────────────────
+// Replace these with your actual EmailJS credentials from https://emailjs.com
+// Or set them in your .env file as VITE_EMAILJS_SERVICE_ID, etc.
+const EMAILJS_SERVICE_ID =
+  import.meta.env.VITE_EMAILJS_SERVICE_ID || "YOUR_SERVICE_ID";
+const EMAILJS_TEMPLATE_ID =
+  import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "YOUR_TEMPLATE_ID";
+const EMAILJS_PUBLIC_KEY =
+  import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "YOUR_PUBLIC_KEY";
+// ───────────────────────────────────────────────────────────────────
+
+type FormState = "idle" | "loading" | "success" | "error";
 
 export default function Contact() {
+  const formRef = useRef<HTMLFormElement>(null);
   const [focusedInput, setFocusedInput] = useState<string | null>(null);
+  const [formState, setFormState] = useState<FormState>("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
+      setErrorMsg("Please fill in all required fields.");
+      setFormState("error");
+      return;
+    }
+
+    setFormState("loading");
+    setErrorMsg("");
+
+    try {
+      await emailjs.sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        formRef.current!,
+        { publicKey: EMAILJS_PUBLIC_KEY },
+      );
+      setFormState("success");
+      setForm({ name: "", email: "", phone: "", message: "" });
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      setErrorMsg("Something went wrong. Please try again later.");
+      setFormState("error");
+    }
+  };
 
   const inputClasses = (name: string) => `
     w-full bg-transparent border-b ${focusedInput === name ? "border-white" : "border-white/20"}
@@ -60,7 +118,7 @@ export default function Contact() {
                 </span>
               </a>
               <a
-                href="mailto:hello@arifkhan.dev"
+                href="mailto:art.izarif00@gmail.com"
                 className="flex items-center gap-4 text-white/70 hover:text-white transition-colors group"
               >
                 <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:border-white/30 transition-colors">
@@ -118,57 +176,158 @@ export default function Contact() {
             transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             className="bg-white/[0.02] border border-white/5 rounded-3xl p-8 md:p-12"
           >
-            <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
-              <div className="relative">
-                <input
-                  type="text"
-                  id="name"
-                  placeholder="Your Name"
-                  className={inputClasses("name")}
-                  onFocus={() => setFocusedInput("name")}
-                  onBlur={() => setFocusedInput(null)}
-                />
-              </div>
-              <div className="relative">
-                <input
-                  type="email"
-                  id="email"
-                  placeholder="Email Address"
-                  className={inputClasses("email")}
-                  onFocus={() => setFocusedInput("email")}
-                  onBlur={() => setFocusedInput(null)}
-                />
-              </div>
-              <div className="relative">
-                <textarea
-                  id="details"
-                  placeholder="Project Details"
-                  rows={4}
-                  className={`${inputClasses("details")} resize-none`}
-                  onFocus={() => setFocusedInput("details")}
-                  onBlur={() => setFocusedInput(null)}
-                />
-              </div>
-              <button
-                type="submit"
-                className="w-full py-5 min-h-[56px] bg-white text-black rounded-full font-medium text-lg hover:bg-white/90 transition-colors flex items-center justify-center gap-2 mt-4"
+            {formState === "success" ? (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="flex flex-col items-center justify-center h-full py-12 text-center gap-4"
               >
-                Send Message
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+                <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-2">
+                  <svg
+                    width="28"
+                    height="28"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="white"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+                <h4 className="text-2xl font-semibold text-white tracking-tight">
+                  Message Sent!
+                </h4>
+                <p className="text-white/50 text-base max-w-xs">
+                  Thanks for reaching out. I'll get back to you as soon as
+                  possible.
+                </p>
+                <button
+                  onClick={() => setFormState("idle")}
+                  className="mt-4 text-sm text-white/40 hover:text-white transition-colors underline underline-offset-4"
                 >
-                  <line x1="22" y1="2" x2="11" y2="13"></line>
-                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                </svg>
-              </button>
-            </form>
+                  Send another
+                </button>
+              </motion.div>
+            ) : (
+              <form ref={formRef} className="space-y-8" onSubmit={handleSubmit}>
+                {/* Name */}
+                <div className="relative">
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Your Name *"
+                    value={form.name}
+                    onChange={handleChange}
+                    className={inputClasses("name")}
+                    onFocus={() => setFocusedInput("name")}
+                    onBlur={() => setFocusedInput(null)}
+                  />
+                </div>
+
+                {/* Email */}
+                <div className="relative">
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Email Address *"
+                    value={form.email}
+                    onChange={handleChange}
+                    className={inputClasses("email")}
+                    onFocus={() => setFocusedInput("email")}
+                    onBlur={() => setFocusedInput(null)}
+                  />
+                </div>
+
+                {/* Phone / Contact — NEW FIELD */}
+                <div className="relative">
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="Phone / Contact Number"
+                    value={form.phone}
+                    onChange={handleChange}
+                    className={inputClasses("phone")}
+                    onFocus={() => setFocusedInput("phone")}
+                    onBlur={() => setFocusedInput(null)}
+                  />
+                </div>
+
+                {/* Message */}
+                <div className="relative">
+                  <textarea
+                    id="message"
+                    name="message"
+                    placeholder="Project Details *"
+                    rows={4}
+                    value={form.message}
+                    onChange={handleChange}
+                    className={`${inputClasses("message")} resize-none`}
+                    onFocus={() => setFocusedInput("message")}
+                    onBlur={() => setFocusedInput(null)}
+                  />
+                </div>
+
+                {/* Error message */}
+                {formState === "error" && errorMsg && (
+                  <motion.p
+                    initial={{ opacity: 0, y: -4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-red-400 text-sm -mt-4"
+                  >
+                    {errorMsg}
+                  </motion.p>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={formState === "loading"}
+                  className="w-full py-5 min-h-[56px] bg-white text-black rounded-full font-medium text-lg
+                    hover:bg-white/90 transition-all flex items-center justify-center gap-2 mt-4
+                    disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {formState === "loading" ? (
+                    <>
+                      <svg
+                        className="animate-spin"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+                      </svg>
+                      Sending…
+                    </>
+                  ) : (
+                    <>
+                      Send Message
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                      </svg>
+                    </>
+                  )}
+                </button>
+              </form>
+            )}
           </motion.div>
         </div>
       </div>

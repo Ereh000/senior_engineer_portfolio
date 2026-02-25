@@ -47,7 +47,7 @@ export default function Hero() {
 
             <motion.h1
               variants={itemVariants}
-              className="text-4xl md:text-5xl lg:text-7xl font-semibold tracking-tighter text-balance leading-[1.1] mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter text-balance leading-[1.1] mb-6"
             >
               Architecting Scalable{" "}
               <span className="text-white/40">eCommerce Systems</span> &
