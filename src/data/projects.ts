@@ -1,7 +1,12 @@
-import kryptek from '../assets/projects/kryptek.png';
-import thewavewalker from '../assets/projects/thewavewalker.png';
-import gideon from '../assets/projects/gideon-app.png';
-
+import kryptek from "../assets/projects/kryptek.png";
+import thewavewalker from "../assets/projects/thewavewalker.png";
+import gideon from "../assets/projects/gideon-app.png";
+import maven from "../assets/projects/maven.png";
+import sog from "../assets/projects/sogknives.png";
+import rovince from "../assets/projects/rovince.png";
+import bonez from "../assets/projects/bonezbully.png";
+import dollarwoof from "../assets/projects/dollarwoofclub.png";
+import easyvariant from "../assets/projects/easyvariants.png";
 
 export interface Project {
   id: string;
@@ -76,8 +81,7 @@ export const projectsData: Project[] = [
     tech: ["Shopify", "React", "Tailwind CSS"],
     results: "Improved customization experience and page load times.",
     impact: "Boosted direct-to-consumer conversions.",
-    image:
-      "https://images.unsplash.com/photo-1582239462276-8025257cbcc3?q=80&w=1920&auto=format&fit=crop",
+    image: maven,
     link: "https://mavenoptics.com/",
     // featured: true,
   },
@@ -94,8 +98,7 @@ export const projectsData: Project[] = [
     tech: ["Shopify", "JavaScript", "CSS"],
     results: "Significant improvement in Lighthouse scores.",
     impact: "Increased mobile conversion rates.",
-    image:
-      "https://images.unsplash.com/photo-1590435990264-b893a9386add?q=80&w=1920&auto=format&fit=crop",
+    image: sog,
     link: "https://www.sogknives.com/",
     // featured: true,
   },
@@ -106,8 +109,7 @@ export const projectsData: Project[] = [
     description:
       "E-commerce platform for specialized anti-tick adventure clothing.",
     tech: ["Shopify", "CSS", "JavaScript"],
-    image:
-      "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?q=80&w=1920&auto=format&fit=crop",
+    image: rovince,
     link: "https://rovince.co.uk/",
   },
   {
@@ -116,8 +118,7 @@ export const projectsData: Project[] = [
     subtitle: "Pet Supply Store",
     description: "D2C storefront for premium quality beef dog treats.",
     tech: ["Shopify", "HTML", "CSS"],
-    image:
-      "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=1920&auto=format&fit=crop",
+    image: bonez,
     link: "https://bonezbullysticks.com/",
   },
   {
@@ -127,8 +128,7 @@ export const projectsData: Project[] = [
     description:
       "Interactive storefront for a dog product subscription and store experience.",
     tech: ["Shopify", "JavaScript", "Tailwind CSS"],
-    image:
-      "https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=1920&auto=format&fit=crop",
+    image: dollarwoof,
     link: "https://dollarwoofclub.com/",
   },
   {
@@ -145,8 +145,7 @@ export const projectsData: Project[] = [
     results: "Automates variant image assignment natively.",
     impact:
       "Boosted conversions for merchants by improving the variant selection UX.",
-    image:
-      "https://images.unsplash.com/photo-1627398225058-f4e40e6ce60f?q=80&w=1920&auto=format&fit=crop",
+    image: easyvariant,
     link: "https://apps.shopify.com/easy-variant-images-automator",
     // featured: true,
   },
